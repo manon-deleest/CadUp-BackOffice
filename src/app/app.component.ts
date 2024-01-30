@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,25 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent {
   isConnecte: boolean | undefined;
+  private _estConnecteSubscription?: Subscription;
   
   constructor(
     private _router: Router,
     private authentificationService: AuthenticationService
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    this.isConnecte = this.authentificationService.utilisateurEstConnecte; 
-    console.log(this.isConnecte); 
-    const user = localStorage.getItem('userEstConnecte');
-    if(user){
-      this.isConnecte =JSON.parse(user);
+  ngOnInit(): void {
+    if(this.authentificationService.getInfosUser()){
+      this._estConnecteSubscription = this.authentificationService.utilisateurEstConnecteObservable.subscribe(estConnecte => this.isConnecte = estConnecte); 
     }
-    console.log(this.isConnecte)
+    this._router.navigate(['']);
 
+  }
+
+  ngOnDestroy(): void {
+    if(this._estConnecteSubscription){
+      this._estConnecteSubscription.unsubscribe();
+    }
   }
 
 

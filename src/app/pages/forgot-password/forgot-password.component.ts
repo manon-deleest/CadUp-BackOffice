@@ -19,7 +19,7 @@ export class ForgotPasswordComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    if(this.authentificationService.userEstConnecte){
+    if(this.authentificationService.utilisateurEstConnecte){
       this._router.navigate(['/home']);
     }else{
       this.initForm();

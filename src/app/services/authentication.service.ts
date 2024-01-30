@@ -37,8 +37,8 @@ export class AuthenticationService {
       this._utilisateur = new User(user.email!, user.uid);
       this._$estConnecteSubject.next(true);
       // localstorage
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('userEstConnecte', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(this._utilisateur));
+      localStorage.setItem('userEstConnecte', JSON.stringify(true));
     });
     return result;
   }
@@ -47,13 +47,22 @@ export class AuthenticationService {
     return sendPasswordResetEmail(this.auth, email);
   }
 
-  getInfosUser() {
+  getInfosUser()  {
     const userEstConnecte = localStorage.getItem('userEstConnecte');
-    const user = localStorage.getItem('user');
-    if (userEstConnecte) {
-      console.log(userEstConnecte);
-      // this._utilisateur = new User(userEstConnecte.email!, userEstConnecte.uid);
-      // this._$estConnecteSubject.next(true);
+    const userStorage = localStorage.getItem('user');
+    if (userEstConnecte && userStorage) {
+      let user = JSON.parse(userStorage!) as User;
+      console.log(user);
+      if(user){
+        this._utilisateur = user as User;
+
+      }
+      console.log(JSON.parse(userEstConnecte)); 
+      this._$estConnecteSubject.next(true);
+      return true; 
+    }else{
+      this._$estConnecteSubject.next(false);
+      return false;
     }
   }
 
