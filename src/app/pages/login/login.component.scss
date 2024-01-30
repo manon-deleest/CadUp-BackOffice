@@ -1,0 +1,30 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.header{
+    width: 100vw;
+    height: 10vh;
+    background-color: $black_light;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    &__img{
+        height: 5vh;
+        padding-left: 20px;
+    }
+}
+.login {
+    @include form_login();
+    
+    &__forgotten {
+        text-align: right;
+        width: 100%;
+        max-width: 400px;
+        cursor: pointer;
+    }
+}

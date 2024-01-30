@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "caddieup-e7b66": {
+      "hosting": {
+        "landding-page": [
+          "caddieup-e7b66"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "caddieup-e7b66"
+  }
+}

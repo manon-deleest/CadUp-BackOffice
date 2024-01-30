@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { faBars, faXRay } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
+@Component({
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss']
+})
+export class NavComponent implements OnInit {
+  readonly burger = faBars; 
+  readonly cross = faXRay;
+  menuIsOpen: boolean = false; 
+  email: string | null = null;
+
+  constructor(
+    private _router : Router,
+    private authentificationService: AuthenticationService
+    ) { }
+
+  ngOnInit(): void {
+    this.menuIsOpen = window.innerWidth>740;
+    this.email = this.authentificationService.getEmail();
+  }
+
+  toogleMenu(event: Event){
+    event.stopPropagation(); 
+    this.menuIsOpen = !this.menuIsOpen;
+  }
+
+  onCloseMenu() :void{
+    if(window.innerWidth <= 740) {
+      this.menuIsOpen = false; 
+
+    }
+  }
+
+  signOut(){
+    this.authentificationService.signOut();
+    this._router.navigate(['/login']);
+  }
+
+}

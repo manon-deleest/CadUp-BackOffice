@@ -1,0 +1,6 @@
+
+<app-nav *ngIf="isConnecte"></app-nav>
+
+<div [className]="(isConnecte)? 'margin-nav': 'margin-connecte' ">
+    <router-outlet></router-outlet>
+</div>

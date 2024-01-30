@@ -1,0 +1,14 @@
+@import 'src/styles/_variables.scss';
+
+.margin-nav{
+    padding-top: $height-menu;
+    padding-left: 18vw;
+    
+    @media (min-width: 900px) {
+        padding: 0;
+        padding-top: $height-menu;
+        padding-left: 18vw;
+    }
+    
+}
+

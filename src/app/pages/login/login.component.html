@@ -1,0 +1,15 @@
+<header class="header">
+    <img class="header__img" src="assets/logo_blanc.png" alt="Logo">
+</header>
+
+<form class="login" [formGroup]="form" (ngSubmit)="login()">
+    <img class="login__img" src="assets/logo_noir.png" alt="Login">
+    <input class="login__item" type="email" formControlName="email" placeholder="Email">
+    <p class="login__error" *ngIf="form.get('email')?.errors?.['email'] && isSendForm">Il faut un email valide</p>
+    <input class="login__item" type="password" formControlName="password" placeholder="Mot de passe">
+
+    <a class="login__forgotten" routerLink="/forgot-password">Mot de passe oublié ?</a>
+
+    <input class="login__submit" type="submit" value="Se connecter">
+    <p class="login__error" *ngIf="isConnexionError">Email ou mot de passe invalide</p>
+</form>

@@ -1,0 +1,50 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; 
+    height: calc(100vh - $height-menu); 
+    width: 100%;
+    &__logo{
+        width: 40%;
+    }
+
+    &__titre{
+        text-transform: uppercase;
+        font-size: 38px;
+        padding: 3px;
+        font-weight: 900;
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between; 
+    }
+}
+
+.item{
+    background-color: #F6D258;
+    color: $white;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &__texte{
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    &__svg{
+        width: 20px;
+    }
+}
