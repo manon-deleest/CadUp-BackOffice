@@ -1,1 +1,10 @@
-<p>administration works!</p>
+<section id="container" >
+    <ng-container *ngFor="let department of departments" >
+        <div [id]="department.id" class="elem" [style]="'width: '+ department.width+'px; height: '+ department.height+'px; left: '+ department.left+'px; top: '+ department.top+'px;'" (mousedown)="movingFromElement($event)">
+            <div class="resize" (mousedown)="resizeFromElement($event)">
+            </div>
+        </div>
+    </ng-container>
+</section>
+
+<button (click)="createNewDepartment()">Créer ellement </button>

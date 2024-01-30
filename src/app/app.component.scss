@@ -2,12 +2,12 @@
 
 .margin-nav{
     padding-top: $height-menu;
-    padding-left: 18vw;
+    padding-left: $width-menu;
     
     @media (min-width: 900px) {
         padding: 0;
         padding-top: $height-menu;
-        padding-left: 18vw;
+        padding-left: $width-menu; 
     }
     
 }

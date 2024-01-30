@@ -20,20 +20,14 @@
             </svg>
             <a class="nav__link" >Tableau de bord</a>
         </li>
-        <li class="nav__titre" routerLinkActive="active" routerLink="/admin">
+        <li class="nav__titre" routerLinkActive="nav__titre--active" routerLink="/admin">
             <svg class="nav__svg" width="18" height="2" viewBox="0 0 18 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line y1="1.24896" x2="18" y2="1.24896" stroke="white"/>
             </svg>
             <a class="nav__link">Administration des rayons</a>
         </li>
-        <li class="nav__item">
-            <a class="nav__link" >Epicerie</a>
-        </li>
-        <li class="nav__item">
-            <a class="nav__link" >Produit frais</a>
-        </li>
-        <li class="nav__item" >
-            <a class="nav__link">Liquides</a>
+        <li *ngFor="let departementType of departementsTypes"  class="nav__item" [routerLink]="'/admin/'+departementType.id">
+            <a class="nav__link" >{{departementType.name}}</a>
         </li>
     </ul>
 

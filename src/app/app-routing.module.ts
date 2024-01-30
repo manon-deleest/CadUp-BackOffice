@@ -27,6 +27,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path:'admin/:departmentType',
+    component: AdministrationComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path:'admin',
     component: AdministrationComponent,
     canActivate: [AuthGuard],

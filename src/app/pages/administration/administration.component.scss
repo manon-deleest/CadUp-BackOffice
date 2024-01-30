@@ -1,0 +1,21 @@
+.elem{
+    background-color: rgb(227, 140, 140);
+    position: absolute;
+    border: 1px solid rgb(227, 140, 140);
+}
+#container{
+    margin: 50px;
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid black;
+}
+.resize{
+    position: absolute;
+    width:20px; 
+    height:20px;
+    background-color: whitesmoke;
+    right: 0;
+    bottom: 0;
+    cursor: e-resize;
+}

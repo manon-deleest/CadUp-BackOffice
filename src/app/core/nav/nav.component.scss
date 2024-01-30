@@ -32,7 +32,7 @@
 .nav{
     height: 100vh;
     background-color: $black_dark;
-    width: 18vw;
+    width: $width-menu;
     position: fixed;
 
     display: flex;
@@ -75,8 +75,9 @@
         color: $white;
         text-transform: capitalize;
         font-size: 14px;
-        padding: 3px;
+        padding: 7px;
         cursor: pointer;
+        letter-spacing: 2px;
     }
 
 }
