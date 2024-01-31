@@ -1,0 +1,7 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+
+.form {
+    @include form();
+}

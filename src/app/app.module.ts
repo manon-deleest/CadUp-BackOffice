@@ -22,6 +22,10 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { LoadingComponent } from './pages/loading/loading.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AdministrationComponent } from './pages/administration/administration.component';
+import { DepartmentFormComponent } from './pages/department-form/department-form.component';
+import { DatatableComponent } from './shareds/datatable/datatable.component';
+import { DepartmentsTypesComponent } from './pages/departments-types/departments-types.component';
+import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { AdministrationComponent } from './pages/administration/administration.c
     ForgotPasswordComponent,
     LoadingComponent,
     HomeComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    DepartmentFormComponent,
+    DatatableComponent,
+    DepartmentsTypesComponent,
+    DepartmentTypeFormComponent,
   ],
   imports: [
     BrowserModule,

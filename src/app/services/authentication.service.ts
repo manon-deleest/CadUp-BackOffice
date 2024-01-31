@@ -31,7 +31,6 @@ export class AuthenticationService {
 
   loginUser(email: string, password: string): Promise<UserCredential> {
     const result = signInWithEmailAndPassword(this.auth, email, password);
-    console.log(result);
     result.then((userCredential) => {
       const user = userCredential.user;
       this._utilisateur = new User(user.email!, user.uid);
@@ -52,12 +51,7 @@ export class AuthenticationService {
     const userStorage = localStorage.getItem('user');
     if (userEstConnecte && userStorage) {
       let user = JSON.parse(userStorage!) as User;
-      console.log(user);
-      if(user){
-        this._utilisateur = user as User;
-
-      }
-      console.log(JSON.parse(userEstConnecte)); 
+      this._utilisateur = user;
       this._$estConnecteSubject.next(true);
       return true; 
     }else{

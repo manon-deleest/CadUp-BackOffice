@@ -1,0 +1,31 @@
+<main *ngIf="form">
+
+    <form class="form" [formGroup]="form" (ngSubmit)="onSend()">
+        <label class="form-input"> <span class="form-input__label">Nom*</span>
+            <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
+            <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Description*</span>
+            <input  value="" name="description" formControlName="description" id="description" type="text" placeholder="Description*" class="form-input__input">
+            <p *ngIf="form.get('description')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner la description</p>
+        </label>
+        <label class="form-input" *ngIf="departmentTypes"> <span class="form-input__label">Type de Rayon*</span>
+            <select formControlName="idDepartmentType" class="form-input__input">
+                <option *ngFor="let departmentType of departmentTypes" [value]="departmentType.id" size="5" class="form-input__option">
+                  {{departmentType.name}}
+                </option>
+                <p *ngIf="form.get('idDepartmentType')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le type de rayon</p>
+            </select>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Couleur*</span>
+            <input  value="" name="color" formControlName="color" id="color" type="color" placeholder="color*" class="form-input__color">
+        </label>
+
+
+        <div class="form__action">
+            <button class="form__supprimer" (click)="deleteDepartment()">Supprimer</button>
+            <button class="form__valider" type="submit">Valider</button>
+        </div>
+        
+    </form>
+</main>

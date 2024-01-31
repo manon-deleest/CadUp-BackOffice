@@ -1,0 +1,25 @@
+<div class="ligne-action">
+    <p (click)="onDelete()" class="ligne-action__supprimer" [ngClass]="{'ligne-action__supprimer--red': tabSelected.size > 0}">  {{tabSelected.size}} élément<ng-container *ngIf="tabSelected.size > 1">s</ng-container> à supprimer</p>
+
+    <a [routerLink]="linkForForm+'/nouveau'" class="ligne-action__ajouter">+</a>
+    
+</div>
+<table class="table">
+    <thead class="table__head">
+        <tr class="table__ligne">
+            <th class="item__checkbox"></th>
+            <th *ngFor="let column of columns" [ngClass]="{'item--cache-mobile': column.visibleMobile === false}" class="item--head">{{column.nom}}</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        <tr *ngFor="let ligne of data" class="table__ligne table__ligne--body" [routerLink]="linkForForm+'/'+ligne.id">
+            <td class="item__checkbox"><input type="checkbox" class="table__checkbox" (click)="onChecked($event, ligne.id)"></td>
+            
+            <td *ngFor="let column of columns" [ngClass]="{'item--cache-mobile': column.visibleMobile === false}" class="item--body">
+                <p *ngIf="column.type === 'boolean'">{{(ligne[column.nameAttribut] == true)?'Oui': 'Non'}}</p>
+                <p *ngIf="column.type !== 'boolean'">{{ligne[column.nameAttribut]}}</p>
+                
+            </td> 
+        </tr>
+    </tbody>
+</table>

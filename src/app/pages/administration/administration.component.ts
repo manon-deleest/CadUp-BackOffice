@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Department } from 'src/app/models/department';
 import { DepartmentService } from 'src/app/services/department.service';
 
@@ -16,15 +16,19 @@ export class AdministrationComponent implements OnInit {
   resizeElement: HTMLDivElement | null = null;
   savePositionResizeX: number | null = null;
   savePositionResizeY: number | null = null;
-  
+
   constructor(
     private _activatedRouter: ActivatedRoute,
-    private _departmentService: DepartmentService
+    private _departmentService: DepartmentService,
+    private _router : Router,
   ) {}
 
   ngOnInit(): void {
-    this.departmentType = this._activatedRouter.snapshot.paramMap.get('departmentType');
+    this._activatedRouter.params.subscribe((params) => {
+      this.departmentType = params['departmentType']; 
+    }); 
     const self = this;
+
     document.addEventListener('mouseup', () => {
       self.movingElement = null;
       self.resizeElement = null;
@@ -53,7 +57,7 @@ export class AdministrationComponent implements OnInit {
   }
 
   createNewDepartment() {
-    let department = new Department('', '', '', 100, 100, 400, 200);
+    let department = new Department('', '', '','1', 100, 100, 400, 200);
     this._departmentService.create_department(department); 
     this.departments = this._departmentService.get_all_department(); 
   }

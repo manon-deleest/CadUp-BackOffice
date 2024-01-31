@@ -6,6 +6,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoadingComponent } from './pages/loading/loading.component';
 import { AdministrationComponent } from './pages/administration/administration.component';
 import { AuthGuard } from './auth.guard';
+import { DepartmentFormComponent } from './pages/department-form/department-form.component';
+import { DepartmentsTypesComponent } from './pages/departments-types/departments-types.component';
+import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
 
 
 const routes: Routes = [
@@ -35,6 +38,27 @@ const routes: Routes = [
     path:'admin',
     component: AdministrationComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path:'department/:idDepartment',
+    component: DepartmentFormComponent,
+  },
+  {
+    path: 'departmentsTypes',
+    children: [
+      {
+        path: '',
+        component: DepartmentsTypesComponent
+      },
+      {
+        path: 'nouveau',
+        component: DepartmentTypeFormComponent
+      },
+      {
+        path: ':id',
+        component: DepartmentTypeFormComponent
+      },
+    ]
   },
   {
     path:'**',

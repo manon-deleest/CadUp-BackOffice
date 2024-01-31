@@ -1,21 +1,52 @@
-.elem{
-    background-color: rgb(227, 140, 140);
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.department{
     position: absolute;
-    border: 1px solid rgb(227, 140, 140);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    &--rotate{
+        transform: rotate(90deg);
+        
+    }
+
+    &__update{
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 }
+
 #container{
-    margin: 50px;
-    width: 800px;
-    height: 500px;
+    margin: 20px;
+    width: 1000px;
+    height: 480px;
     background-color: white;
-    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .resize{
     position: absolute;
     width:20px; 
     height:20px;
-    background-color: whitesmoke;
+    background-color: rgb(205, 205, 205);
     right: 0;
     bottom: 0;
+    border-radius: 5px;
     cursor: e-resize;
+}
+
+.admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &__button{
+        @include button(#2E343E);
+    }
 }

@@ -1,0 +1,48 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.table{
+    @include table(); 
+}
+
+.item{
+    @include item_menu(); 
+}
+
+.ligne-action{
+    display: none;
+    @media (min-width: 740px){
+        display: flex;
+        justify-content: space-between; 
+        width: 90%;
+        margin-left: 5%;
+        align-items: center;
+    }
+    
+    &__ajouter{
+        background-color: $main-color;
+        color: $white;
+        font-size: 25px;
+        border-radius: 5px;
+        height: 40px;
+        padding-bottom: 2px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__poubelle{
+        font-size: 18px;
+        margin-right: 20px;
+        color: $grey_light;
+        &--red{
+            color: $red;
+        }
+    }
+    &__supprimer{
+        color: $grey_light;
+        &--red{
+            color:$red
+        }
+    }
+}

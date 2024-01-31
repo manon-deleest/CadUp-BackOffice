@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, deleteDoc, doc,  getDoc,  getDocs, query, setDoc, updateDoc, where } from '@angular/fire/firestore';
 import { Department } from '../models/department';
 
 @Injectable({
@@ -17,8 +17,7 @@ export class DepartmentService {
     
     getDocs(this.queryDate).then((docs) => {
       docs.docs.forEach((doc) => {
-        let department : Department = Department.fromFirebase(doc);
-        departments.push(department);
+        departments.push(Department.fromFirebase(doc));
       });
     });
     return departments;
@@ -26,26 +25,28 @@ export class DepartmentService {
 
   // Créer un nouveau department dans firebase
   create_department(department:Department){
-    addDoc(this.collecti,{
-      description: department.description, 
-      height: department.height,
-      left : department.left,
-      name : department.name,
-      top : department.top,
-      width : department.width
-    })
+    addDoc(this.collecti, Department.transformToMap(department))
   }
 
   // Update un department dans firebase
   update_department(department:Department){
     let docRef = doc(this.db, "department", department.id);
-    updateDoc(docRef, {
-      description: department.description, 
-      height: department.height,
-      left : department.left,
-      name : department.name,
-      top : department.top,
-      width : department.width
-    });
+    updateDoc(docRef, Department.transformToMap(department));
+  }
+
+  async get_department_by_id(id:string) : Promise<Department | any> {
+    let department : Department|undefined = undefined ;
+    let docRef = doc(this.db, "department", id);
+  
+    await getDoc(docRef).then((doc) => {
+      department = Department.fromFirebase(doc);
+      return department;
+    }); 
+    return department;
+  }
+
+  delete_department(department:Department){
+    let docRef = doc(this.db, "department", department.id);
+    deleteDoc(docRef);
   }
 }

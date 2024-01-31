@@ -1,10 +1,14 @@
-<section id="container" >
-    <ng-container *ngFor="let department of departments" >
-        <div [id]="department.id" class="elem" [style]="'width: '+ department.width+'px; height: '+ department.height+'px; left: '+ department.left+'px; top: '+ department.top+'px;'" (mousedown)="movingFromElement($event)">
-            <div class="resize" (mousedown)="resizeFromElement($event)">
+<main class="admin">
+    <section id="container" >
+        <ng-container *ngFor="let department of departments" >
+            <div [id]="department.id" class="department" [style]="'width: '+ department.width+'px; height: '+ department.height+'px; left: '+ department.left+'px; top: '+ department.top+'px; background-color: '+department.color+';'" (mousedown)="movingFromElement($event)">
+                <p [className]="(department.height > department.width)?'department--rotate': ''" [style]="(department.idDepartmentType == departmentType && departmentType !== '')?'font-weight: bold ; min-width : '+department.height+'; ':'min-width : '+department.height+';'">{{department.name}}</p>
+                <span [routerLink]="'/department/'+department.id" class="department__update">🖋️</span>
+                <div class="resize" (mousedown)="resizeFromElement($event)"></div>
             </div>
-        </div>
-    </ng-container>
-</section>
+        </ng-container>
+    </section>
+    
+    <button (click)="createNewDepartment()" class="admin__button">AJOUTER </button>
+</main>
 
-<button (click)="createNewDepartment()">Créer ellement </button>
