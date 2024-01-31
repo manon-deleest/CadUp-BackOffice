@@ -8,8 +8,16 @@ export class DepartmentType {
         this.name = name;
         this.favorite = favorite;
     }
+    
     static fromFirebase(doc:any): DepartmentType {
         let data = doc.data();
         return new DepartmentType(doc.id, data.Titre, data.favori);
+    }
+
+    static transformToMap(departmentType: DepartmentType){
+        return {
+            Titre: departmentType.name,
+            favori: departmentType.favorite,
+        }
     }
 }

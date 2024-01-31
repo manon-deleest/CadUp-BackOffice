@@ -35,9 +35,7 @@ export class DepartmentsTypesComponent implements OnInit {
 
   
   onDelete(departementType: Set<string> ){
-    console.log(departementType);
     departementType.forEach( (departmenttype) => {
-      console.log(departmenttype);
       this._departmentTypeService.deleteDepartementType(departmenttype);
     }); 
     this.data = this._departmentTypeService.get_all_department_type(); 

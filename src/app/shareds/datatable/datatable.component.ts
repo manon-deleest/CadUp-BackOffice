@@ -27,11 +27,9 @@ export class DatatableComponent implements OnInit {
     }else{
       this.tabSelected.add(ligne); 
     }
-    console.log(this.tabSelected);
   }
 
   onDelete() {
-    console.log(this.tabSelected);
     this.elementSupprimer.emit(this.tabSelected);
     this.tabSelected.clear(); 
   }

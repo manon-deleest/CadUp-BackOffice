@@ -1,3 +1,5 @@
+
+<h1 class="titre" *ngIf="department">Rayon : {{department.name}} </h1>
 <main *ngIf="form">
 
     <form class="form" [formGroup]="form" (ngSubmit)="onSend()">

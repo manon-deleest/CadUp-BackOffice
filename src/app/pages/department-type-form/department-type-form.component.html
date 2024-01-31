@@ -1,1 +1,21 @@
-<p>department-type-form works!</p>
+
+<h1 class="titre" *ngIf="departmentType">Type de rayon : {{departmentType.name}} </h1>
+<main *ngIf="form">
+
+    <form class="form" [formGroup]="form" (ngSubmit)="onSend()">
+        <label class="form-input"> <span class="form-input__label">Nom*</span>
+            <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
+            <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Favori*</span>
+            <input  value="" name="favorite" formControlName="favorite" id="favorite" type="checkbox" placeholder="favorite*">
+        </label>
+
+
+        <div class="form__action">
+            <button class="form__supprimer" (click)="deleteDepartment()">Supprimer</button>
+            <button class="form__valider" type="submit">Valider</button>
+        </div>
+        
+    </form>
+</main>

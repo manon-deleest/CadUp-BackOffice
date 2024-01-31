@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, deleteDoc, doc, getDoc, getDocs, query, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from '@angular/fire/firestore';
 import { DepartmentType } from '../models/department-type';
 
 @Injectable({
@@ -38,5 +38,25 @@ export class DepartmentTypeService {
   deleteDepartementType(id: string){
     let docRef = doc(this.db, "TypeRayon", id);
     deleteDoc(docRef);
+  }
+
+  async get_department_type_by_id(id:string) : Promise<DepartmentType | any> {
+    let departmentType : DepartmentType|undefined = undefined ;
+    let docRef = doc(this.db, "TypeRayon", id);
+  
+    await getDoc(docRef).then((doc) => {
+      departmentType = DepartmentType.fromFirebase(doc);
+      return departmentType;
+    }); 
+    return departmentType;
+  }
+ 
+  update_department_type(departmentType: DepartmentType){
+    let docRef = doc(this.db, "TypeRayon", departmentType.id);
+    updateDoc(docRef, DepartmentType.transformToMap(departmentType));
+  }
+
+  add_department_type(departmentType:DepartmentType){
+    addDoc(this.collecti, DepartmentType.transformToMap(departmentType))
   }
 }
