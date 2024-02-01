@@ -26,6 +26,8 @@ import { DepartmentFormComponent } from './pages/department-form/department-form
 import { DatatableComponent } from './shareds/datatable/datatable.component';
 import { DepartmentsTypesComponent } from './pages/departments-types/departments-types.component';
 import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductFormComponent } from './pages/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { DepartmentTypeFormComponent } from './pages/department-type-form/depart
     DatatableComponent,
     DepartmentsTypesComponent,
     DepartmentTypeFormComponent,
+    ProductsComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,

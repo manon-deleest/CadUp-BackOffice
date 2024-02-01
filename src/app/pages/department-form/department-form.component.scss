@@ -8,3 +8,15 @@
 .form {
     @include form();
 }
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &__tab{
+        width: 50%;
+        margin-right: 20px;
+    }
+
+}

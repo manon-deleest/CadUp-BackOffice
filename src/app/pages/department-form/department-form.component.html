@@ -1,6 +1,6 @@
 
 <h1 class="titre" *ngIf="department">Rayon : {{department.name}} </h1>
-<main *ngIf="form">
+<main *ngIf="form && department" class="main">
 
     <form class="form" [formGroup]="form" (ngSubmit)="onSend()">
         <label class="form-input"> <span class="form-input__label">Nom*</span>
@@ -30,4 +30,6 @@
         </div>
         
     </form>
+    
+    <app-datatable [columns]="columns" [data]="data" (elementSupprimer)="onDelete($event)" [linkForForm]="'/department/'+department.id+'/product'" class="main__tab"></app-datatable>
 </main>

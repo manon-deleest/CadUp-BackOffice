@@ -9,6 +9,8 @@ import { AuthGuard } from './auth.guard';
 import { DepartmentFormComponent } from './pages/department-form/department-form.component';
 import { DepartmentsTypesComponent } from './pages/departments-types/departments-types.component';
 import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductFormComponent } from './pages/product-form/product-form.component';
 
 
 const routes: Routes = [
@@ -41,10 +43,34 @@ const routes: Routes = [
   },
   {
     path:'department/:idDepartment',
-    component: DepartmentFormComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: DepartmentFormComponent,
+      },
+      {
+        path: 'product',
+        children: [
+          {
+            path: 'create',
+            component: ProductFormComponent
+          },
+          {
+            path: 'nouveau',
+            component: ProductsComponent
+          },
+          {
+            path: ':id',
+            component: ProductFormComponent
+          },
+        ]
+      }
+    ]
   },
   {
     path: 'departmentsTypes',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -57,6 +83,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: DepartmentTypeFormComponent
+        
       },
     ]
   },

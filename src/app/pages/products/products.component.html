@@ -1,0 +1,10 @@
+
+<h1 class="titre" > Ajout de produit </h1>
+
+<ul class="product">
+    <li *ngFor="let product of products" [routerLink]="['/product', product.id]" class="product-item">
+        <input type="checkbox" name="product" id="product" class="product-item__checkbox">
+        <img [src]="product.image" alt="{{product.name}}" class="product-item__image">
+        <p class="product-item__name">{{product.name}} - {{product.price}} € </p>
+    </li>
+</ul>

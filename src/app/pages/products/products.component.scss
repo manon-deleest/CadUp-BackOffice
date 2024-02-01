@@ -1,0 +1,47 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.titre{
+    @include titre(); 
+}
+
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px; 
+
+    &-item{
+        border: 1px solid $main-color;
+        border-radius: 20px; 
+        width: 100px;
+        height: 150px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 25px;
+
+
+        &__checkbox{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        &__image{
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        &__name{
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: $main-color;
+        }
+    }
+}

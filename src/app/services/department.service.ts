@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, deleteDoc, doc,  getDoc,  getDocs, query, setDoc, updateDoc, where } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, deleteDoc, doc,  getDoc,  getDocs, query, updateDoc } from '@angular/fire/firestore';
 import { Department } from '../models/department';
 
 @Injectable({
