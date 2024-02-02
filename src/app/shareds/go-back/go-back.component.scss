@@ -1,0 +1,7 @@
+@import 'src/styles/_mixin.scss';
+
+.go-back{
+    @include button(#dedede);
+    position: fixed;
+    color: #262626;
+}

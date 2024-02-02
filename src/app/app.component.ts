@@ -18,9 +18,8 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
-    if(this.authentificationService.getInfosUser()){
-      this._estConnecteSubscription = this.authentificationService.utilisateurEstConnecteObservable.subscribe(estConnecte => this.isConnecte = estConnecte); 
-    }
+    this._estConnecteSubscription = this.authentificationService.utilisateurEstConnecteObservable.subscribe(estConnecte =>{this.isConnecte = estConnecte; console.log(estConnecte)} ); 
+    this.authentificationService.getInfosUser()
     this._router.navigate(['']);
 
   }

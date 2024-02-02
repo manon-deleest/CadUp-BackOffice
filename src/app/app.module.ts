@@ -30,6 +30,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductFormComponent } from './pages/product-form/product-form.component';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { FirebaseStorage } from '@angular/fire/storage';
+import { GoBackComponent } from './shareds/go-back/go-back.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FirebaseStorage } from '@angular/fire/storage';
     DepartmentTypeFormComponent,
     ProductsComponent,
     ProductFormComponent,
+    GoBackComponent,
   ],
   imports: [
     BrowserModule,
