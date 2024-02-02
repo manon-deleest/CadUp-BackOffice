@@ -47,7 +47,6 @@ export class ProductService {
       console.log("Error getting document:", error);
     }); ;
 
-    console.log(products);
     this._product.next(products);
     return true; 
   }

@@ -105,15 +105,10 @@ export class ProductFormComponent implements OnInit {
           const storageRef = ref(this.storage, file.name);
           let uploadTask = uploadBytesResumable(storageRef, file);
           await uploadTask;
-          console.log('Uploaded a blob or file!');
           this.form?.get('image')?.setValue(await getDownloadURL(uploadTask.snapshot.ref));
           this.form!.value.image = await getDownloadURL(uploadTask.snapshot.ref);
-          console.log(getDownloadURL(uploadTask.snapshot.ref));
         }
       }
-      console.log(event.target.files[0]);
-      // const file = event.target.files[0];
-      // this.form?.get('image')?.setValue(file);
     }
   }
 

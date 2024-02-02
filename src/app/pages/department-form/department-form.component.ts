@@ -96,6 +96,7 @@ export class DepartmentFormComponent implements OnInit {
   onSend(){
     this.isSubmited = true; 
     if(this.form?.valid){
+      console.log(this.form?.value);
       let department = this.department;
       if(department){
         department.color = this.form?.value.color;

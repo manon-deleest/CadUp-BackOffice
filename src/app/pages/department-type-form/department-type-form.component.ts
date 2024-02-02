@@ -55,6 +55,7 @@ export class DepartmentTypeFormComponent implements OnInit {
   onSend() {
     this.isSubmited = true;
     if (this.form?.valid) {
+      console.log(this.form?.value);
       if (this.idDepartmentType === null) {
         let departmenttype = new DepartmentType(
           '',
