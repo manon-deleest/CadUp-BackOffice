@@ -1,31 +1,39 @@
 <h1 class="titre" > Ajout de produit </h1>
-<form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="onSend()">
-    <label class="form-input"> <span class="form-input__label">Nom*</span>
-        <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
-        <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
-    </label>
-    <label class="form-input"> <span class="form-input__label">Description*</span>
-        <input  value="" name="description" formControlName="description" id="description" type="text" placeholder="Description*" class="form-input__input">
-        <p *ngIf="form.get('description')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner la description</p>
-    </label>
-    <label class="form-input"> <span class="form-input__label">Prix*</span>
-        <input  value="" name="price" formControlName="price" id="price" type="number" placeholder="Prix*" class="form-input__input">
-        <p *ngIf="form.get('price')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le prix</p>
-    </label>
-    <label class="form-input"> <span class="form-input__label">Code barre*</span>
-        <input  value="" name="barcode" formControlName="barcode" id="barcode" type="text" placeholder="Code barre*" class="form-input__input">
-        <p *ngIf="form.get('barcode')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le code barre</p>
-    </label>
-    <label class="form-input"> <span class="form-input__label">Image*</span>
-        <input  value="" name="image" formControlName="image" id="image" type="text" placeholder="Image*" class="form-input__input">
-        <p *ngIf="form.get('image')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner l'image</p>
-    </label>
-
-
-
-    <div class="form__action">
-        <button class="form__supprimer" (click)="deleteProduct()">Supprimer</button>
-        <button class="form__valider" type="submit">Valider</button>
-    </div>
+<main class="product">
+    <form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="onSend()">
+        <label class="form-input"> <span class="form-input__label">Nom*</span>
+            <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
+            <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Description*</span>
+            <input  value="" name="description" formControlName="description" id="description" type="text" placeholder="Description*" class="form-input__input">
+            <p *ngIf="form.get('description')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner la description</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Prix*</span>
+            <input  value="" name="price" formControlName="price" id="price" type="number" placeholder="Prix*" class="form-input__input">
+            <p *ngIf="form.get('price')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le prix</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Code barre*</span>
+            <input  value="" name="barcode" formControlName="barcode" id="barcode" type="text" placeholder="Code barre*" class="form-input__input">
+            <p *ngIf="form.get('barcode')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le code barre</p>
+        </label>
+       
     
-</form>
+        <div class="form__action">
+            <button class="form__supprimer" (click)="deleteProduct()">Supprimer</button>
+            <button class="form__valider" type="submit">Valider</button>
+        </div>
+        
+    </form>
+    
+    <section *ngIf="form">
+        <label class="form-input"> <span class="form-input__label">Image*</span>
+            <img [src]="form.get('image')?.value" alt="image" class="product-image" *ngIf="form.get('image')?.value">
+            <button (click)="deleteImg()" *ngIf="form.get('image')?.value" class="product-image__delete"> Supprimer l'image</button>
+    
+            <input type="file" (change)="onFileChange($event)"  *ngIf="!form.get('image')?.value">
+            <p *ngIf="form.get('image')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner l'image</p>
+        </label>
+    </section>
+</main>
+

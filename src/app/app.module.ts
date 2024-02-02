@@ -28,6 +28,9 @@ import { DepartmentsTypesComponent } from './pages/departments-types/departments
 import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductFormComponent } from './pages/product-form/product-form.component';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { FirebaseStorage } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +60,7 @@ import { ProductFormComponent } from './pages/product-form/product-form.componen
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()), 
     provideAuth(() => getAuth()),
     FirestoreModule,
     AngularFireAuthModule

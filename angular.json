@@ -34,6 +34,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/CaddieUp/docs",
               "budgets": [
                 {
                   "type": "initial",
