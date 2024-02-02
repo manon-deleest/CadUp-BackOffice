@@ -38,7 +38,9 @@ export class AuthenticationService {
       // localstorage
       localStorage.setItem('user', JSON.stringify(this._utilisateur));
       localStorage.setItem('userEstConnecte', JSON.stringify(true));
-    });
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }); 
     return result;
   }
 

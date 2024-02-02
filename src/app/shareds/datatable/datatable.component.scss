@@ -34,15 +34,19 @@
     &__poubelle{
         font-size: 18px;
         margin-right: 20px;
-        color: $grey_light;
+        fill: $grey_light;
         &--red{
-            color: $red;
+            fill: $red;
         }
     }
     &__supprimer{
         color: $grey_light;
+        display: flex;
+        align-items: center;
         &--red{
-            color:$red
+            color:$red; 
+            display: flex;
+            align-items: center;
         }
     }
 }

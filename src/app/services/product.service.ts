@@ -28,7 +28,9 @@ export class ProductService {
       docs.docs.forEach((doc) => {
         products.push(Product.fromFirebase(doc));
       });
-    });
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }); ;
     return products;
   }
 
@@ -41,8 +43,11 @@ export class ProductService {
       docs.docs.forEach((doc) => {
         products.push(Product.fromFirebase(doc));
       });
-    });
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }); ;
 
+    console.log(products);
     this._product.next(products);
     return true; 
   }
@@ -56,9 +61,11 @@ export class ProductService {
   }
 
   update_product(product : Product, idDepartment : string = '0'){
-    updateDoc(doc(this.db, "product", product.id), Product.transformToMap(product));
+    updateDoc(doc(this.db, "product", product.id), Product.transformToMap(product)); 
     if(idDepartment !== '0' ){
-      this.get_product_form_department(idDepartment);
+      setTimeout(() => {
+        this.get_product_form_department(idDepartment);
+      }, 1000);
     }
   }
 
@@ -68,8 +75,10 @@ export class ProductService {
         productObject.idDepartment = '';
         updateDoc(doc(this.db, "product", productObject.id), Product.transformToMap(productObject));
       }
-    }); 
-    this.get_product_form_department(idService);
+      this.get_product_form_department(idService);
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }); ; 
   }
 
   async get_product_by_id(idProduct : string) : Promise<Product | undefined> {

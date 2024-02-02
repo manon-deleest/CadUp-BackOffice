@@ -3,7 +3,7 @@
         <ng-container *ngFor="let department of departments" >
             <div [id]="department.id" class="department" [style]="'width: '+ department.width+'px; height: '+ department.height+'px; left: '+ department.left+'px; top: '+ department.top+'px; background-color: '+department.color+';'" (mousedown)="movingFromElement($event)">
                 <p [className]="(department.height > department.width)?'department--rotate': ''" [style]="(department.idDepartmentType == departmentType && departmentType !== '')?'font-weight: bold ; min-width : '+department.height+'; ':'min-width : '+department.height+';'">{{department.name}}</p>
-                <span [routerLink]="'/department/'+department.id" class="department__update">🖋️</span>
+                <span [routerLink]="'/department/'+department.id" class="department__update"><svg style="fill: white; margin: 10px; " width="20" height="20" viewBox="0 0 24 24"><path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z"/></svg></span>
                 <div class="resize" (mousedown)="resizeFromElement($event)"></div>
             </div>
         </ng-container>

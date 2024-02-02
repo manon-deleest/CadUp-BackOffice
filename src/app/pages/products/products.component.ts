@@ -43,6 +43,7 @@ export class ProductsComponent implements OnInit {
   }
 
   confirm(){
+    console.log(this.selectedId.size); 
     if(this.selectedId.size == 0){
       alert("Vous devez sélectionner au moins un produit");
       return; 
@@ -50,6 +51,7 @@ export class ProductsComponent implements OnInit {
       this.selectedId.forEach((id) => {
         let product = this.products.find((product) => product.id == id);
         if(product !== undefined && this.id_department !== null){
+          console.log(this.id_department);
           product.idDepartment = this.id_department;
           this._productService.update_product(product, this.id_department);
         }

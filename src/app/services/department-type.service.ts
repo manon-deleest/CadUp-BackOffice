@@ -47,6 +47,8 @@ export class DepartmentTypeService {
     await getDoc(docRef).then((doc) => {
       departmentType = DepartmentType.fromFirebase(doc);
       return departmentType;
+    }).catch((error) => {
+      console.log("Error getting document:", error);
     }); 
     return departmentType;
   }

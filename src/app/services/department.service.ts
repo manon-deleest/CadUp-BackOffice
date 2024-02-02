@@ -19,7 +19,9 @@ export class DepartmentService {
       docs.docs.forEach((doc) => {
         departments.push(Department.fromFirebase(doc));
       });
-    });
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }); 
     return departments;
   }
 
@@ -41,7 +43,9 @@ export class DepartmentService {
     await getDoc(docRef).then((doc) => {
       department = Department.fromFirebase(doc);
       return department;
-    }); 
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    });  
     return department;
   }
 
