@@ -45,3 +45,26 @@
         }
     }
 }
+
+.btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0; 
+    right: 0; 
+
+    &__valider{
+        @include button(#0F550E);
+    }
+    &__annuler{
+        @include button(#cacaca);
+    }
+
+    &__creer{
+        @include button(#2E343E);
+        position: fixed;
+        right: 40px;
+        top: 80px;
+    }
+}

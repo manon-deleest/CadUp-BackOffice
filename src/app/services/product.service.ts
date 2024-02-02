@@ -55,18 +55,21 @@ export class ProductService {
     addDoc(this.collecti, Product.transformToMap(product));
   }
 
-  update_product(product : Product){
+  update_product(product : Product, idDepartment : string = '0'){
     updateDoc(doc(this.db, "product", product.id), Product.transformToMap(product));
+    if(idDepartment !== '0' ){
+      this.get_product_form_department(idDepartment);
+    }
   }
 
-  detached_product(product : string, idProduct : string){
+  detached_product(product : string, idService : string){
     this.get_product_by_id(product).then((productObject) => {
       if(productObject !== undefined){
         productObject.idDepartment = '';
         updateDoc(doc(this.db, "product", productObject.id), Product.transformToMap(productObject));
       }
     }); 
-    this.get_product_form_department(idProduct);
+    this.get_product_form_department(idService);
   }
 
   async get_product_by_id(idProduct : string) : Promise<Product | undefined> {

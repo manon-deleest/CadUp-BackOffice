@@ -1,0 +1,10 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.titre{
+    @include titre(); 
+}
+
+.form {
+    @include form();
+}
