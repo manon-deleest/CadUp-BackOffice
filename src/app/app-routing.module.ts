@@ -16,19 +16,18 @@ import { CustomerFormComponent } from './pages/customer-form/customer-form.compo
 import { AddComponent } from './pages/add/add.component';
 import { AddFormComponent } from './pages/add-form/add-form.component';
 
-
 const routes: Routes = [
   {
-    path:'',
-    component: LoadingComponent
+    path: '',
+    component: LoadingComponent,
   },
   {
-    path:'login',
-    component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'forgot-password',
-    component: ForgotPasswordComponent
+    component: ForgotPasswordComponent,
   },
   {
     path: 'home',
@@ -36,17 +35,17 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path:'admin/:departmentType',
+    path: 'admin/:departmentType',
     component: AdministrationComponent,
     canActivate: [AuthGuard],
   },
   {
-    path:'admin',
+    path: 'admin',
     component: AdministrationComponent,
     canActivate: [AuthGuard],
   },
   {
-    path:'department/:idDepartment',
+    path: 'department/:idDepartment',
     canActivate: [AuthGuard],
     children: [
       {
@@ -58,19 +57,19 @@ const routes: Routes = [
         children: [
           {
             path: 'create',
-            component: ProductFormComponent
+            component: ProductFormComponent,
           },
           {
             path: 'nouveau',
-            component: ProductsComponent
+            component: ProductsComponent,
           },
           {
             path: ':idProduct',
-            component: ProductFormComponent
+            component: ProductFormComponent,
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   {
     path: 'customer',
@@ -78,26 +77,17 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: CustomerComponent
+        component: CustomerComponent,
       },
       {
-        path: 'product',
-        children: [
-          {
-            path: 'create',
-            component: CustomerFormComponent
-          },
-          {
-            path: 'nouveau',
-            component: CustomerFormComponent
-          },
-          {
-            path: ':idProduct',
-            component: CustomerFormComponent
-          },
-        ]
-      }
-    ]
+        path: 'nouveau',
+        component: CustomerFormComponent,
+      },
+      {
+        path: ':idCustomer',
+        component: CustomerFormComponent,
+      },
+    ],
   },
   {
     path: 'add',
@@ -109,9 +99,9 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: AddFormComponent
-      }
-    ]
+        component: AddFormComponent,
+      },
+    ],
   },
   {
     path: 'departmentsTypes',
@@ -119,27 +109,28 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DepartmentsTypesComponent
+        component: DepartmentsTypesComponent,
       },
       {
         path: 'nouveau',
-        component: DepartmentTypeFormComponent
+        component: DepartmentTypeFormComponent,
       },
       {
         path: ':id',
-        component: DepartmentTypeFormComponent
-        
+        component: DepartmentTypeFormComponent,
       },
-    ]
+    ],
   },
   {
-    path:'**',
-    redirectTo: 'login'
-  }
+    path: '**',
+    redirectTo: 'login',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

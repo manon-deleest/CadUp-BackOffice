@@ -1,0 +1,5 @@
+@import 'src/styles/_mixin.scss'; 
+
+.titre{
+    @include titre(); 
+}

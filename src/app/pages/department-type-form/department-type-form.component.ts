@@ -4,7 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DepartmentType } from 'src/app/models/department-type';
 import { DepartmentTypeService } from 'src/app/services/department-type.service';
-import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
   selector: 'app-department-type-form',

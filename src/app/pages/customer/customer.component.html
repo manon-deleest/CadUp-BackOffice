@@ -1,1 +1,3 @@
-<p>customer works!</p>
+
+<h1 class="titre">Clients </h1>
+<app-datatable [columns]="columns" [data]="data" (elementSupprimer)="onDelete($event)" titleAjouter="Ajouter un client" linkForForm="/customer"></app-datatable>

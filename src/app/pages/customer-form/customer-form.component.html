@@ -1,1 +1,28 @@
-<p>customer-form works!</p>
+<app-go-back></app-go-back>
+<h1 class="titre" *ngIf="customer">Client : {{customer.name}} </h1>
+<main *ngIf="form">
+
+    <form class="form" [formGroup]="form" (ngSubmit)="onSend()">
+        <label class="form-input"> <span class="form-input__label">Nom*</span>
+            <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
+            <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Prénom*</span>
+            <input value="" name="firstName" formControlName="firstName" id="firstName" type="text" placeholder="Prénom*" class="form-input__input">
+            <p *ngIf="form.get('firstName')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le prénom</p>
+        </label>
+        <label class="form-input"> <span class="form-input__label">Numéro de carte de fidélité*</span>
+            <input value="" name="numBarCode" formControlName="numBarCode" id="numBarCode" type="text" placeholder="Numéro de carte de fidélité*" class="form-input__input">
+            <p *ngIf="form.get('numBarCode')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le numéro de carte de fidélité</p>
+        </label>
+
+
+
+
+        <div class="form__action">
+            <button class="form__supprimer" (click)="deleteDepartment()">Supprimer</button>
+            <button class="form__valider" type="submit">Valider</button>
+        </div>
+        
+    </form>
+</main>
