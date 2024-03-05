@@ -2,7 +2,10 @@
     <img class="header__logo" src="assets/logo_blanc.png" alt="Logo">
 
     <p class="header__info">Bonjour, {{email}} </p>
-    <img class="header__img" src="assets/deconnexion.png" alt="Logo" (click)="signOut()">
+    <div>
+        <img class="header__img" src="assets/help.png" alt="Logo" (click)="help()">
+        <img class="header__img" src="assets/logout.png" alt="Logo" (click)="signOut()">
+    </div>
 </header>
 
 <nav class="nav">
@@ -40,6 +43,18 @@
                 <line y1="1.24896" x2="18" y2="1.24896" stroke="white"/>
             </svg>
             <a class="nav__link">Types de rayons</a>
+        </li>        
+        <li class="nav__titre" routerLinkActive="nav__titre--active" routerLink="/customer">
+            <svg class="nav__svg" width="18" height="2" viewBox="0 0 18 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line y1="1.24896" x2="18" y2="1.24896" stroke="white"/>
+            </svg>
+            <a class="nav__link">Clients</a>
+        </li>    
+        <li class="nav__titre" routerLinkActive="nav__titre--active" routerLink="/add">
+            <svg class="nav__svg" width="18" height="2" viewBox="0 0 18 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line y1="1.24896" x2="18" y2="1.24896" stroke="white"/>
+            </svg>
+            <a class="nav__link">Promotions</a>
         </li>
     </ul>
 

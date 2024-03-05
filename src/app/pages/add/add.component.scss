@@ -1,0 +1,26 @@
+@import 'src/styles/_variables.scss';
+@import 'src/styles/_mixin.scss';
+
+.add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__item{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__image{
+        width: 80vw;
+        max-width: 200px;
+        border-radius: 20px;
+    }
+
+    &__btn{
+        @include button($main-color);
+    }
+}

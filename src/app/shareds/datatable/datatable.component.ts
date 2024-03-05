@@ -35,4 +35,10 @@ export class DatatableComponent implements OnInit {
     this.tabSelected.clear(); 
   }
 
+  isPhoto(lien: string){
+    console.log(lien); 
+    // Start with https://
+    return true ;
+  }
+
 }

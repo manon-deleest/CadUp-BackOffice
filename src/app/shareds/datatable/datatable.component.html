@@ -18,7 +18,8 @@
             
             <td *ngFor="let column of columns" [ngClass]="{'item--cache-mobile': column.visibleMobile === false}" class="item--body" [ngStyle]="{'width' : column.width}">
                 <p *ngIf="column.type === 'boolean'">{{(ligne[column.nameAttribut] == true)?'Oui': 'Non'}}</p>
-                <p *ngIf="column.type !== 'boolean'">{{ligne[column.nameAttribut]}}</p>
+                <p *ngIf="column.type !== 'boolean' && column.type !== 'image'">{{ligne[column.nameAttribut]}}</p>
+                <img [src]="ligne[column.nameAttribut]" *ngIf="column.type === 'image'" class="item__image">
                 
             </td> 
         </tr>

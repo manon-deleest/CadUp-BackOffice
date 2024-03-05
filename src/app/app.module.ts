@@ -31,6 +31,10 @@ import { ProductFormComponent } from './pages/product-form/product-form.componen
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { FirebaseStorage } from '@angular/fire/storage';
 import { GoBackComponent } from './shareds/go-back/go-back.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
+import { AddComponent } from './pages/add/add.component';
+import { AddFormComponent } from './pages/add-form/add-form.component';
 
 
 @NgModule({
@@ -49,6 +53,10 @@ import { GoBackComponent } from './shareds/go-back/go-back.component';
     ProductsComponent,
     ProductFormComponent,
     GoBackComponent,
+    CustomerComponent,
+    CustomerFormComponent,
+    AddComponent,
+    AddFormComponent,
   ],
   imports: [
     BrowserModule,

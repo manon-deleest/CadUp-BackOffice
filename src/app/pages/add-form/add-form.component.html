@@ -1,0 +1,19 @@
+<app-go-back></app-go-back>
+<h1 class="titre" > Ajout de produit </h1>
+<main class="product">
+    <form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="onSend()">       
+        <label class="form-input"> <span class="form-input__label">Image*</span>
+            <img [src]="form.get('image')?.value" alt="image" class="product-image" *ngIf="form.get('image')?.value">
+            <button (click)="deleteImg()" *ngIf="form.get('image')?.value" class="product-image__delete"> Supprimer l'image</button>
+    
+            <input type="file" (change)="onFileChange($event)"  *ngIf="!form.get('image')?.value">
+            <p *ngIf="form.get('image')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner l'image</p>
+        </label>
+
+        <div class="form__action">
+            <button class="form__valider" type="submit">Valider</button>
+        </div>
+        
+    </form>
+</main>
+

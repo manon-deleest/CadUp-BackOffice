@@ -1,0 +1,9 @@
+
+<ul class="add">
+    <li *ngFor="let add of adds" class="add__item">
+        <img [src]=add.image alt="ajout de produit" class="add__image">
+        <a (click)="delete(add.id)">Supprimer</a>
+    </li>
+</ul>
+
+<button routerLink="/add/create" class="add__btn"> Creer une promotion </button>

@@ -11,6 +11,10 @@ import { DepartmentsTypesComponent } from './pages/departments-types/departments
 import { DepartmentTypeFormComponent } from './pages/department-type-form/department-type-form.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductFormComponent } from './pages/product-form/product-form.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
+import { AddComponent } from './pages/add/add.component';
+import { AddFormComponent } from './pages/add-form/add-form.component';
 
 
 const routes: Routes = [
@@ -65,6 +69,47 @@ const routes: Routes = [
             component: ProductFormComponent
           },
         ]
+      }
+    ]
+  },
+  {
+    path: 'customer',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: CustomerComponent
+      },
+      {
+        path: 'product',
+        children: [
+          {
+            path: 'create',
+            component: CustomerFormComponent
+          },
+          {
+            path: 'nouveau',
+            component: CustomerFormComponent
+          },
+          {
+            path: ':idProduct',
+            component: CustomerFormComponent
+          },
+        ]
+      }
+    ]
+  },
+  {
+    path: 'add',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: AddComponent,
+      },
+      {
+        path: 'create',
+        component: AddFormComponent
       }
     ]
   },

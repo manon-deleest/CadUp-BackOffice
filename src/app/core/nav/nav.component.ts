@@ -37,13 +37,16 @@ export class NavComponent implements OnInit {
   onCloseMenu() :void{
     if(window.innerWidth <= 740) {
       this.menuIsOpen = false; 
-
     }
   }
 
   signOut(){
     this.authentificationService.signOut();
     this._router.navigate(['/login']);
+  }
+
+  help(){
+    // TODO ajouter le lien vers la vidéo d'aide
   }
 
 }

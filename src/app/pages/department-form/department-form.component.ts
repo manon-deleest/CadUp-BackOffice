@@ -27,6 +27,13 @@ export class DepartmentFormComponent implements OnInit {
   
   columns: Column[] = [
     {
+      'nom':"Photo", 
+      "visibleMobile": true, 
+      "nameAttribut":"image",
+      "type": 'image',
+      "width": '50px'
+    },
+    {
       'nom':"Nom", 
       "visibleMobile": true, 
       "nameAttribut":"name",

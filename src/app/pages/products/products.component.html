@@ -4,10 +4,10 @@
 <button class="btn__creer" (click)="create()">Créer un nouveau porduit</button>
 <p *ngIf="products.length == 0" class="product"> Il n'y a pas de produits à assigner à un rayon. </p>
 <ul class="product">
-    <li *ngFor="let product of products" [routerLink]="'/department/'+id_department+'/product/'+product.id" class="product-item">
+    <li *ngFor="let product of products" class="product-item">
         <input type="checkbox" name="product" id="product" class="product-item__checkbox" (click)="onChecked($event, product.id)">
-        <img [src]="product.image" alt="{{product.name}}" class="product-item__image">
-        <p class="product-item__name">{{product.name}} - {{product.price}} € </p>
+        <img [src]="product.image" alt="{{product.name}}" class="product-item__image" [routerLink]="'/department/'+id_department+'/product/'+product.id" >
+        <p class="product-item__name" [routerLink]="'/department/'+id_department+'/product/'+product.id">{{product.name}} - {{product.price}} € </p>
     </li>
 </ul>
 
