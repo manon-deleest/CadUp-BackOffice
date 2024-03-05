@@ -31,5 +31,5 @@
         
     </form>
     
-    <app-datatable [columns]="columns" [data]="data" (elementSupprimer)="onDelete($event)" [linkForForm]="'/department/'+department.id+'/product'" class="main__tab"></app-datatable>
+    <app-datatable [columns]="columns" [data]="data" (elementSupprimer)="onDelete($event)" titleAjouter="Selectionner un produit" [linkForForm]="'/department/'+department.id+'/product'" class="main__tab"></app-datatable>
 </main>

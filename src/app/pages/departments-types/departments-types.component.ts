@@ -19,12 +19,14 @@ export class DepartmentsTypesComponent implements OnInit {
       'nom':"Nom", 
       "visibleMobile": true, 
       "nameAttribut":"name",
-      "type": 'texte'
+      "type": 'texte',
+      "width": '200px'
     },{
       'nom':"Favoris", 
       "visibleMobile": false, 
       "nameAttribut":"favorite",
-      "type": 'boolean'
+      "type": 'boolean',
+      "width": '100px'
     }
   ]
   data: DepartmentType[] = []; 

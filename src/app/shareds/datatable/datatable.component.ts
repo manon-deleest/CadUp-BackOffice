@@ -10,6 +10,7 @@ export class DatatableComponent implements OnInit {
   @Input() columns: Column[] = []; 
   @Input() data : any[] = []; 
   @Input() linkForForm : string = '' ;
+  @Input() titleAjouter : string = 'Ajouter';
   @Output() elementSupprimer = new EventEmitter<Set<any>>(); 
 
   tabSelected: Set<string> = new Set(); 

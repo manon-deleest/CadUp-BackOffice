@@ -30,17 +30,20 @@ export class DepartmentFormComponent implements OnInit {
       'nom':"Nom", 
       "visibleMobile": true, 
       "nameAttribut":"name",
-      "type": 'texte'
+      "type": 'texte', 
+      "width": '200px'
     },{
       'nom':"Prix", 
       "visibleMobile": false, 
       "nameAttribut":"price",
-      "type": 'texte'
+      "type": 'texte',
+      "width": '100px'
     },{
       'nom':"Code barre", 
       "visibleMobile": false, 
       "nameAttribut":"barcode",
-      "type": 'texte'
+      "type": 'texte',
+      "width": '100px'
     }
   ]
 
