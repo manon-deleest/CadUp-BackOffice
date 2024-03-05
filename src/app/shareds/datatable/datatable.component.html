@@ -7,7 +7,7 @@
 </div>
 <table class="table">
     <thead class="table__head">
-        <tr class="table__ligne">
+        <tr class="table__ligne table__ligne--header">
             <th class="item__checkbox"></th>
             <th *ngFor="let column of columns" [ngClass]="{'item--cache-mobile': column.visibleMobile === false}" class="item--head">{{column.nom}}</th>
         </tr>

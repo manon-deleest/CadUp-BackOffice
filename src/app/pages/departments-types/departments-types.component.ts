@@ -21,7 +21,7 @@ export class DepartmentsTypesComponent implements OnInit {
       "nameAttribut":"name",
       "type": 'texte'
     },{
-      'nom':"Favorie", 
+      'nom':"Favoris", 
       "visibleMobile": false, 
       "nameAttribut":"favorite",
       "type": 'boolean'

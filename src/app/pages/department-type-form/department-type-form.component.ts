@@ -27,7 +27,9 @@ export class DepartmentTypeFormComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this._activatedRouter.params.subscribe((params) => {
-      this.idDepartmentType = params['id'];
+      if(params['id'] !== undefined){
+        this.idDepartmentType = params['id'];
+      }
     });
     this.initForm();
 
@@ -64,7 +66,7 @@ export class DepartmentTypeFormComponent implements OnInit {
         );
         this._departmentTypeService.add_department_type(departmenttype);
         
-        this._router.navigate(['/admin']);
+        this._router.navigate(['/departmentsTypes']);
       } else {
         let departmenttype = this.departmentType;
         if (departmenttype) {
@@ -77,7 +79,7 @@ export class DepartmentTypeFormComponent implements OnInit {
             'Ok '
           );
         }
-        this._router.navigate(['/admin']);
+        this._router.navigate(['/departmentsTypes']);
       }
 
       this.isSubmited = false;
@@ -88,6 +90,6 @@ export class DepartmentTypeFormComponent implements OnInit {
     if (this.departmentType) {
       this._departmentTypeService.deleteDepartementType(this.departmentType.id);
     }
-    this._router.navigate(['/admin']);
+    this._router.navigate(['/departmentsTypes']);
   }
 }

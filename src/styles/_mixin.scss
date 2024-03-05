@@ -146,13 +146,19 @@
 
 @mixin table(){
   width: 90%;
-  margin-left: 5%;
+  margin-left: 5%;  
+  display: flex;
+  position: relative;
+  padding: 35px 0;
   &__ligne{
       border-bottom: 1px solid $grey_dark;
+      &--header{
+        position: absolute;   
+        top: -15px;
+      }
   }
   &__ligne--body:hover{
       background-color: $white_dark;
-      
   }
   &__checkbox{
       display: none;
@@ -165,6 +171,13 @@
       display: block;
       line-height: 20px;
   }
+
+  &__body{
+    display: block;
+    overflow: scroll;
+    height: 50vh;
+  }
+
 }
 
 @mixin item_menu(){

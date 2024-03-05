@@ -59,6 +59,7 @@ export class DepartmentTypeService {
   }
 
   add_department_type(departmentType:DepartmentType){
+    console.log(DepartmentType.transformToMap(departmentType));
     addDoc(this.collecti, DepartmentType.transformToMap(departmentType))
   }
 }
