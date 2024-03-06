@@ -31,8 +31,12 @@ export class DatatableComponent implements OnInit {
   }
 
   onDelete() {
-    this.elementSupprimer.emit(this.tabSelected);
-    this.tabSelected.clear(); 
+    if(this.tabSelected.size == 0){
+      alert("Veuillez selectionner au moins un élément"); 
+    }else if (window.confirm("Voulez vous vraiments supprimer ces éléments ?")) {
+      this.elementSupprimer.emit(this.tabSelected);
+      this.tabSelected.clear(); 
+    }
   }
 
   isPhoto(lien: string){

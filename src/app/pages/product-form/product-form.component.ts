@@ -43,6 +43,8 @@ export class ProductFormComponent implements OnInit {
           price: this.product.price,
           barcode: this.product.barcode,
           image: this.product.image,
+          nutriscore: this.product.nutriscore,
+          unitPrice: this.product.unitPrice,
         });
       }
     }
@@ -56,6 +58,8 @@ export class ProductFormComponent implements OnInit {
       price: ['', Validators.required],
       barcode: ['', Validators.required],
       image: ['', Validators.required],
+      nutriscore: [''],
+      unitPrice: [''],
     });
   }
 
@@ -70,6 +74,8 @@ export class ProductFormComponent implements OnInit {
         product.image = this.form?.value.image;
         product.description = this.form?.value.description;
         product.name = this.form?.value.name;
+        product.nutriscore = this.form?.value.nutriscore;
+        product.unitPrice = this.form?.value.unitPrice;
         this._productService.update_product(product);
       } else {
         let product = new Product(
@@ -79,7 +85,9 @@ export class ProductFormComponent implements OnInit {
           this.form?.value.price,
           this.form?.value.barcode,
           '',
-          this.form?.value.image
+          this.form?.value.nutriscore,
+          this.form?.value.image,
+          this.form?.value.unitPrice
         );
         this._productService.create_product(product);
       }

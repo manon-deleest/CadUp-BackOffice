@@ -124,10 +124,14 @@ export class DepartmentFormComponent implements OnInit {
   }
 
   deleteDepartment(){
-    if(this.department){
-      this._departmentService.delete_department(this.department);
+    if (window.confirm("Voulez vous vraiment supprimer ce rayon ?")) {
+      if(this.department){
+        this._departmentService.delete_department(this.department);
+      }
+      this._router.navigate(['/admin']);
     }
-    this._router.navigate(['/admin']);
+    
+    
   }
   
   onDelete(Product: Set<string> ){

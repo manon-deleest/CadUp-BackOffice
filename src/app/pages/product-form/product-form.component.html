@@ -2,22 +2,32 @@
 <h1 class="titre" > Ajout de produit </h1>
 <main class="product">
     <form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="onSend()">
-        <label class="form-input"> <span class="form-input__label">Nom*</span>
-            <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
-            <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
-        </label>
+        <div style="display: flex; width: 82%;">
+            <label class="form-input"> <span class="form-input__label">Nom*</span>
+                <input  value="" name="name" formControlName="name" id="name" type="text" placeholder="Nom*" class="form-input__input">
+                <p *ngIf="form.get('name')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le nom</p>
+            </label>
+            <label class="form-input"> <span class="form-input__label">Prix*</span>
+                <input  value="" name="price" formControlName="price" id="price" type="number" placeholder="Prix*" class="form-input__input">
+                <p *ngIf="form.get('price')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le prix</p>
+            </label>
+        </div>
         <label class="form-input"> <span class="form-input__label">Description*</span>
             <input  value="" name="description" formControlName="description" id="description" type="text" placeholder="Description*" class="form-input__input">
             <p *ngIf="form.get('description')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner la description</p>
-        </label>
-        <label class="form-input"> <span class="form-input__label">Prix*</span>
-            <input  value="" name="price" formControlName="price" id="price" type="number" placeholder="Prix*" class="form-input__input">
-            <p *ngIf="form.get('price')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le prix</p>
         </label>
         <label class="form-input"> <span class="form-input__label">Code barre*</span>
             <input  value="" name="barcode" formControlName="barcode" id="barcode" type="text" placeholder="Code barre*" class="form-input__input">
             <p *ngIf="form.get('barcode')?.hasError('required') && isSubmited" class="form-input__error">Vous devez rensigner le code barre</p>
         </label>
+        <div style="display: flex; width: 82%;">
+            <label class="form-input"> <span class="form-input__label">Nutriscore</span>
+                <input  value="" name="nutriscore" formControlName="nutriscore" id="nutriscore" type="text" placeholder="Nutriscore" class="form-input__input">
+            </label>
+            <label class="form-input"> <span class="form-input__label">Prix à l'unité</span>
+                <input  value="" name="unitPrice" formControlName="unitPrice" id="unitPrice" type="number" placeholder="Prix à l'unité" class="form-input__input">
+            </label>
+        </div>
        
     
         <div class="form__action">
