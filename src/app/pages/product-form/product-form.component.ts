@@ -102,7 +102,7 @@ export class ProductFormComponent implements OnInit {
       for (let i = 0; i < files.length; i++) {
         const file = files.item(i);
         if (file) {
-          const storageRef = ref(this.storage, file.name);
+          const storageRef = ref(this.storage, `${new Date().getTime()}_${file.name}`);
           let uploadTask = uploadBytesResumable(storageRef, file);
           await uploadTask;
           this.form?.get('image')?.setValue(await getDownloadURL(uploadTask.snapshot.ref));
