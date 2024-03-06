@@ -20,3 +20,13 @@
     }
 
 }
+
+.product-image{
+    max-width: 400px;
+    border-radius: 20px;
+
+    &__delete{
+        @include button(#82291D);
+        align-self: center;
+    }
+}
